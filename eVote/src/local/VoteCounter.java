@@ -23,3 +23,30 @@ package local;
 public class VoteCounter {
     
 }
+
+/*
+package local;
+/**
+* A class that represents the result in an election site
+*/
+/*
+public class VoteCounter {
+???
+public VoteCounter() { ??? }
+public void countValid(Party party) { ??? }
+public void countNull() { ??? }
+public void countBlank() { ??? }
+public
+public
+public
+public
+int
+int
+int
+int
+getTotal() { ??? }
+getVotesFor(Party party) { ??? }
+getNulls() { ??? }
+getBlanks() { ??? }
+}
+*/
