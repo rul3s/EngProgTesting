@@ -6,9 +6,31 @@
 package data;
 
 /**
- *
+ * Represents an Activation Code
  * @author raul
  */
 public class ActivationCode {
+    private final String code;
     
+    public ActivationCode(String code){
+        this.code = code;
+    }
+    
+    public String getCode(){
+        return code;
+    }
+    
+    @Override
+    public String toString() {
+        return "ActivationCode{" + "code='" + code + '\'' + '}';
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ActivationCode activationCode = (ActivationCode) o;
+        
+        return code.equals(activationCode.code);
+    }
 }
