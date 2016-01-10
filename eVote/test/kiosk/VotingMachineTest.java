@@ -90,6 +90,7 @@ public class VotingMachineTest {
         voteCounter = voteProcessor.count();
         assertEquals(voteCounter.getTotal(),1);
         assertTrue(voteCounter.voteMap.get(new Party("PartyA")).equals(0));
+        assertTrue(voteCounter.voteMap.get(new Party("NULL")).equals(1));
     }
     
     @Test
