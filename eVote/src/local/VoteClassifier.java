@@ -14,41 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package data;
-
-import java.util.Objects;
+package local;
+import data.*;
+import java.util.HashSet;
 
 /**
- * Represents a party
+ *
  * @author raul
  */
-public class Party {
-    private final String name;
+public class VoteClassifier {
+    public final HashSet<Party> validParties;
     
-    public Party(String name){
-        this.name = name;
-    }
-
-    public String getName(){
-        return name;
+    public VoteClassifier(HashSet<Party> validParties){
+        this.validParties = validParties;
     }
     
-    @Override
-    public String toString() {
-        return "Party{" + "name='" + name + '\'' + '}';
+    public boolean isBlank(Vote vote){
+        return vote.getOption().equals("");
     }
     
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Party party = (Party) o;
-        
-        return name.equals(party.name);
+    public boolean isNull(Vote vote) {
+        return !validParties.contains(new Party(vote.getOption()));
     }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode();
+    
+    public boolean isValid(Vote vote) {
+        return validParties.contains(new Party(vote.getOption()));
     }
 }

@@ -25,27 +25,30 @@ import java.util.HashMap;
  */
 public class VoteCounter {
     private int counter;
-    public HashMap<String, Integer> voteMap;
+    private Party NULL, BLANK;
+    public HashMap<Party, Integer> voteMap;
     
     public VoteCounter(){
         counter = 0;
+        NULL = new Party("NULL");
+        BLANK = new Party("BLANK");
         voteMap = new HashMap<>();
         voteMap.clear();
     }
     
     public void countValid(Party party){
         counter++;
-        voteMap.put(party.getName(), (voteMap.get(party.getName()))+1);
+        voteMap.put(party, voteMap.get(party)+1);
     }
     
     public void countNull(){
         counter++;
-        voteMap.put("NULL", (voteMap.get("NULL"))+1);
+        voteMap.put(NULL, (voteMap.get(NULL))+1);
     }
     
     public void countBlank(){
         counter++;
-        voteMap.put("BLANK", (voteMap.get("BLANK"))+1);
+        voteMap.put(BLANK, (voteMap.get(BLANK))+1);
     }
     
     public int getTotal(){

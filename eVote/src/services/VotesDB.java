@@ -14,41 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package data;
-
-import java.util.Objects;
+package services;
+import data.*;
+import java.util.LinkedList;
 
 /**
- * Represents a party
+ *
  * @author raul
  */
-public class Party {
-    private final String name;
-    
-    public Party(String name){
-        this.name = name;
-    }
-
-    public String getName(){
-        return name;
-    }
-    
-    @Override
-    public String toString() {
-        return "Party{" + "name='" + name + '\'' + '}';
-    }
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Party party = (Party) o;
-        
-        return name.equals(party.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode();
-    }
+public interface VotesDB {
+    void registerVote(Vote vote);
+    LinkedList<Vote> getVotes();
 }

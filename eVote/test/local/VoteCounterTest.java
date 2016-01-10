@@ -33,11 +33,11 @@ public class VoteCounterTest {
     private VoteCounter voteCounter;
     
     public void resetCounters(){
-        voteCounter.voteMap.put(a.getName(), 0);
-        voteCounter.voteMap.put(b.getName(), 0);
-        voteCounter.voteMap.put(c.getName(), 0);
-        voteCounter.voteMap.put(NULL.getName(), 0);
-        voteCounter.voteMap.put(BLANK.getName(), 0);
+        voteCounter.voteMap.put(a, 0);
+        voteCounter.voteMap.put(b, 0);
+        voteCounter.voteMap.put(c, 0);
+        voteCounter.voteMap.put(NULL, 0);
+        voteCounter.voteMap.put(BLANK, 0);
     }
     
     @Before
@@ -55,17 +55,17 @@ public class VoteCounterTest {
     public void testMap() {
         voteCounter.voteMap.clear();
         resetCounters();
-        voteCounter.voteMap.put(a.getName(), 50);
-        voteCounter.voteMap.put(b.getName(), 50);
-        voteCounter.voteMap.put(c.getName(), 50);
-        voteCounter.voteMap.put(NULL.getName(), 50);
-        voteCounter.voteMap.put(BLANK.getName(), 50);
+        voteCounter.voteMap.put(a, 50);
+        voteCounter.voteMap.put(b, 50);
+        voteCounter.voteMap.put(c, 50);
+        voteCounter.voteMap.put(NULL, 50);
+        voteCounter.voteMap.put(BLANK, 50);
         
-        assertTrue(voteCounter.voteMap.get(a.getName()) == 50);
-        assertTrue(voteCounter.voteMap.get(b.getName()) == 50);
-        assertTrue(voteCounter.voteMap.get(c.getName()) == 50);
-        assertTrue(voteCounter.voteMap.get(NULL.getName()) == 50);
-        assertTrue(voteCounter.voteMap.get(BLANK.getName()) == 50);
+        assertTrue(voteCounter.voteMap.get(a) == 50);
+        assertTrue(voteCounter.voteMap.get(b) == 50);
+        assertTrue(voteCounter.voteMap.get(c) == 50);
+        assertTrue(voteCounter.voteMap.get(NULL) == 50);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 50);
     }
     
     @Test
@@ -79,11 +79,11 @@ public class VoteCounterTest {
         voteCounter.countValid(NULL);
         voteCounter.countValid(BLANK);
         
-        assertTrue(voteCounter.voteMap.get(a.getName()) == 1);
-        assertTrue(voteCounter.voteMap.get(b.getName()) == 1);
-        assertTrue(voteCounter.voteMap.get(c.getName()) == 1);
-        assertTrue(voteCounter.voteMap.get(NULL.getName()) == 1);
-        assertTrue(voteCounter.voteMap.get(BLANK.getName()) == 1);
+        assertTrue(voteCounter.voteMap.get(a) == 1);
+        assertTrue(voteCounter.voteMap.get(b) == 1);
+        assertTrue(voteCounter.voteMap.get(c) == 1);
+        assertTrue(voteCounter.voteMap.get(NULL) == 1);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 1);
         
         //Test multiple votes
         voteCounter.voteMap.clear();
@@ -94,11 +94,11 @@ public class VoteCounterTest {
         for(int x = 0; x<500; x++) voteCounter.countValid(NULL);
         for(int x = 0; x<500; x++) voteCounter.countValid(BLANK);
         
-        assertTrue(voteCounter.voteMap.get(a.getName()) == 500);
-        assertTrue(voteCounter.voteMap.get(b.getName()) == 500);
-        assertTrue(voteCounter.voteMap.get(c.getName()) == 500);
-        assertTrue(voteCounter.voteMap.get(NULL.getName()) == 500);
-        assertTrue(voteCounter.voteMap.get(BLANK.getName()) == 500);
+        assertTrue(voteCounter.voteMap.get(a) == 500);
+        assertTrue(voteCounter.voteMap.get(b) == 500);
+        assertTrue(voteCounter.voteMap.get(c) == 500);
+        assertTrue(voteCounter.voteMap.get(NULL) == 500);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 500);
         
         //Test mixed and multiple votes
         voteCounter.voteMap.clear();
@@ -111,11 +111,11 @@ public class VoteCounterTest {
             voteCounter.countValid(BLANK);
         }
         
-        assertTrue(voteCounter.voteMap.get(a.getName()) == 1000);
-        assertTrue(voteCounter.voteMap.get(b.getName()) == 1000);
-        assertTrue(voteCounter.voteMap.get(c.getName()) == 1000);
-        assertTrue(voteCounter.voteMap.get(BLANK.getName()) == 1000);
-        assertTrue(voteCounter.voteMap.get(NULL.getName()) == 1000);
+        assertTrue(voteCounter.voteMap.get(a) == 1000);
+        assertTrue(voteCounter.voteMap.get(b) == 1000);
+        assertTrue(voteCounter.voteMap.get(c) == 1000);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 1000);
+        assertTrue(voteCounter.voteMap.get(NULL) == 1000);
     }
     
     @Test
@@ -123,12 +123,12 @@ public class VoteCounterTest {
         voteCounter.voteMap.clear();
         resetCounters();
         voteCounter.countBlank();
-        assertTrue(voteCounter.voteMap.get("BLANK") == 1);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 1);
         
         voteCounter.voteMap.clear();
         resetCounters();
         for(int x = 0; x<500; x++) voteCounter.countBlank();
-        assertTrue(voteCounter.voteMap.get("BLANK") == 500);
+        assertTrue(voteCounter.voteMap.get(BLANK) == 500);
     }
     
     @Test
@@ -136,12 +136,12 @@ public class VoteCounterTest {
         voteCounter.voteMap.clear();
         resetCounters();
         voteCounter.countNull();
-        assertTrue(voteCounter.voteMap.get("NULL") == 1);
+        assertTrue(voteCounter.voteMap.get(NULL) == 1);
         
         voteCounter.voteMap.clear();
         resetCounters();
         for(int x = 0; x<500; x++) voteCounter.countNull();
-        assertTrue(voteCounter.voteMap.get("NULL") == 500);
+        assertTrue(voteCounter.voteMap.get(NULL) == 500);
     }
     
     @Test
