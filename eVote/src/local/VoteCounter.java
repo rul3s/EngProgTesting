@@ -31,7 +31,7 @@ public class VoteCounter {
     public VoteCounter(){
         counter = 0;
         NULL = new Party("NULL");
-        BLANK = new Party("BLANK");
+        BLANK = new Party("");
         voteMap = new HashMap<>();
         voteMap.clear();
     }

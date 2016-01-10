@@ -47,7 +47,7 @@ public class VoteCounterTest {
         b = new Party("PartyB");
         c = new Party("PartyC");
         NULL = new Party("NULL");
-        BLANK = new Party("BLANK");
+        BLANK = new Party("");
         resetCounters();
     }
     
