@@ -19,11 +19,9 @@ package local;
 import data.Party;
 import data.Vote;
 import java.util.HashSet;
-import java.util.LinkedList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import services.VotesDB;
 
 /**
  *
@@ -55,7 +53,6 @@ public class VoteProcessorTest {
         c = new Party("PartyC");
         NULL = new Party("NULL");
         BLANK = new Party("");
-        
     }
 
     /**
@@ -108,25 +105,5 @@ public class VoteProcessorTest {
         assertTrue(voteCounter.voteMap.get(NULL) == 1500);
         assertTrue(voteCounter.voteMap.get(BLANK) == 600);
         assertTrue(voteCounter.getTotal() == 3000);
-    }
-    
-    
-    private class VoteDB_SUT implements VotesDB{
-        private LinkedList<Vote> votes;
-        
-        public VoteDB_SUT(){
-            votes = new LinkedList<>();
-        }
-        
-        @Override
-        public void registerVote(Vote vote) {
-            votes.add(vote);
-        }
-
-        @Override
-        public LinkedList<Vote> getVotes() {
-            return votes;
-        }
-    }
-    
+    }    
 }
