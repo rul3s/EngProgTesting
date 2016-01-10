@@ -25,7 +25,7 @@ import java.util.HashMap;
  */
 public class VoteCounter {
     private int counter;
-    private Party NULL, BLANK;
+    private final Party NULL, BLANK;
     public HashMap<Party, Integer> voteMap;
     
     public VoteCounter(){
